@@ -1,4 +1,6 @@
 WeightRecorderP120327::Application.routes.draw do
+  resources :users
+
   resources :weights
 
   # The priority is based upon order of creation:
