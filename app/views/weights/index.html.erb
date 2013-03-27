@@ -15,13 +15,13 @@
     <td><%= weight.user %></td>
     <td><%= weight.weight %></td>
     <td><%= weight.memo %></td>
-    <td><%= link_to 'Show', weight %></td>
-    <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-    <td><%= link_to 'Destroy', weight, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', user_weight_path(weight.user, weight) %></td>
+    <td><%# link_to 'Edit', edit_user_weight_path(weight) %></td>
+    <td><%# link_to 'Destroy', user_weight, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Weight', new_weight_path %>
+<%= link_to 'New Weight', new_user_weight_path %>
