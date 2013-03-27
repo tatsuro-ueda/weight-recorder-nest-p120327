@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
+    skip_before_filter :authorize
     @user = User.new
 
     respond_to do |format|
