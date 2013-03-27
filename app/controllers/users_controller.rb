@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # TODO ログインしていなくてもユーザ一覧を見ることができる
+  skip_before_filter :authorize
   # GET /users
   # GET /users.json
   def index
@@ -24,7 +26,6 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-    skip_before_filter :authorize
     @user = User.new
 
     respond_to do |format|

@@ -8,6 +8,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @users.each do |user| %>
@@ -15,6 +16,7 @@
     <td><%= user.name %></td>
     <!--<td><%= user.password_digest %></td>-->
     <!--<td><%= user.weight %></td>-->
+    <td><%= link_to 'Input Weight', new_user_weight_path(user.id) %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>

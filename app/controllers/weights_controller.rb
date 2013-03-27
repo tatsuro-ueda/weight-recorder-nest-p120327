@@ -1,5 +1,4 @@
 class WeightsController < ApplicationController
-  # TODO show only current users weight
   # GET /weights
   # GET /weights.json
   def index
@@ -38,20 +37,23 @@ class WeightsController < ApplicationController
     @weight = Weight.find(params[:id])
   end
 
+  # TODO should be able to enter weight
   # POST /weights
   # POST /weights.json
   def create
-    @weight = Weight.new(params[:weight])
-
-    respond_to do |format|
-      if @weight.save
-        format.html { redirect_to @weight, notice: 'Weight was successfully created.' }
-        format.json { render json: @weight, status: :created, location: @weight }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @weight.errors, status: :unprocessable_entity }
-      end
-    end
+    user = User.find params[:user_id]
+    user.weight.create params[:weight]
+    #@weight = Weight.new(params[:weight])
+    #
+    #respond_to do |format|
+    #  if @weight.save
+    #    format.html { redirect_to @weight, notice: 'Weight was successfully created.' }
+    #    format.json { render json: @weight, status: :created, location: @weight }
+    #  else
+    #    format.html { render action: "new" }
+    #    format.json { render json: @weight.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PUT /weights/1
