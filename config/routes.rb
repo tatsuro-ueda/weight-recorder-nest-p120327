@@ -1,6 +1,12 @@
 WeightRecorderP120327::Application.routes.draw do
-  resources :users
 
+  controller :sessions do
+    get    'login' => :new
+    post   'login' => :create
+    delete 'logout' => :destroy
+  end
+
+  resources :users
   resources :weights
 
   # The priority is based upon order of creation:
