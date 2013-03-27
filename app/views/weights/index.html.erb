@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>User</th>
     <th>Weight</th>
     <th>Memo</th>
     <th></th>
@@ -11,6 +12,7 @@
 
 <% @weights.each do |weight| %>
   <tr>
+    <td><%= weight.user %></td>
     <td><%= weight.weight %></td>
     <td><%= weight.memo %></td>
     <td><%= link_to 'Show', weight %></td>

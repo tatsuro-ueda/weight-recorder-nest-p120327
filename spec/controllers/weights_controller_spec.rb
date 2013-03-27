@@ -24,7 +24,7 @@ describe WeightsController do
   # Weight. As you add validations to Weight, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "weight" => "9.99" }
+    { "user" => "" }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -89,14 +89,14 @@ describe WeightsController do
       it "assigns a newly created but unsaved weight as @weight" do
         # Trigger the behavior that occurs when invalid params are submitted
         Weight.any_instance.stub(:save).and_return(false)
-        post :create, {:weight => { "weight" => "invalid value" }}, valid_session
+        post :create, {:weight => { "user" => "invalid value" }}, valid_session
         assigns(:weight).should be_a_new(Weight)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Weight.any_instance.stub(:save).and_return(false)
-        post :create, {:weight => { "weight" => "invalid value" }}, valid_session
+        post :create, {:weight => { "user" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -110,8 +110,8 @@ describe WeightsController do
         # specifies that the Weight created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Weight.any_instance.should_receive(:update_attributes).with({ "weight" => "9.99" })
-        put :update, {:id => weight.to_param, :weight => { "weight" => "9.99" }}, valid_session
+        Weight.any_instance.should_receive(:update_attributes).with({ "user" => "" })
+        put :update, {:id => weight.to_param, :weight => { "user" => "" }}, valid_session
       end
 
       it "assigns the requested weight as @weight" do
@@ -132,7 +132,7 @@ describe WeightsController do
         weight = Weight.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Weight.any_instance.stub(:save).and_return(false)
-        put :update, {:id => weight.to_param, :weight => { "weight" => "invalid value" }}, valid_session
+        put :update, {:id => weight.to_param, :weight => { "user" => "invalid value" }}, valid_session
         assigns(:weight).should eq(weight)
       end
 
@@ -140,7 +140,7 @@ describe WeightsController do
         weight = Weight.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Weight.any_instance.stub(:save).and_return(false)
-        put :update, {:id => weight.to_param, :weight => { "weight" => "invalid value" }}, valid_session
+        put :update, {:id => weight.to_param, :weight => { "user" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

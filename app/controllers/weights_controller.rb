@@ -1,4 +1,5 @@
 class WeightsController < ApplicationController
+  # TODO show only current users weight
   # GET /weights
   # GET /weights.json
   def index
